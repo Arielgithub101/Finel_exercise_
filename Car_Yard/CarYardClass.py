@@ -4,8 +4,8 @@ from typing import Dict
 
 class CarYard:
 
-    def __init__(self, all_car_dict: Dict[int, Car]):
-        self.all_car_dict: Dict[int, Car] = all_car_dict
+    def __init__(self):
+        self.all_car_dict: Dict[int, Car] = {}
 
     def display_all_cars_by_type(self, type_car: str) -> None:
         for car in self.all_car_dict.values():
@@ -14,7 +14,7 @@ class CarYard:
 
     def add_car(self, new_car: Car) -> None:
 
-        if new_car.id_plate in self.all_car_dict.keys():
+        if new_car.id_plate in self.all_car_dict:
             return print('car License plate already in system,try again')
         self.all_car_dict[new_car.id_plate] = new_car
         print(' ')
