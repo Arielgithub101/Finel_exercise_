@@ -1,8 +1,8 @@
 from CarYardClass import CarYard
 from CarClass import Car
 
-def display_menu(obj:CarYard) -> None:
 
+def display_menu(obj: CarYard) -> None:
     flag = 'y'
     while flag == 'y':
 
@@ -45,7 +45,7 @@ def display_menu(obj:CarYard) -> None:
                 flag: str = input('would you like to do anther action ? ---> y/n : ')
 
             case 4:
-                obj.display_all_gas_cars()
+                obj.display_all_gas_car()
                 flag: str = input('would you like to do anther action ? ---> y/n : ')
 
             case 5:
@@ -77,4 +77,3 @@ def display_menu(obj:CarYard) -> None:
 print("------------ welcome to the Car yard !! --------")
 start = CarYard()
 display_menu(start)
-
