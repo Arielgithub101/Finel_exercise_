@@ -10,7 +10,7 @@ class Car:
         self.id_plate: int = id_plate
 
     def car_info(self):
-        print(f'''hello your new car as follow : 
+        print(f'''hello your new car as  follow : 
         company name : {self.company}
         type car : {self.type_car}
         Year of production : {self.year_of_prod}
