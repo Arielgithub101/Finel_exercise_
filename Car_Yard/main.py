@@ -1,6 +1,16 @@
 from CarYardClass import CarYard
 from CarClass import Car
 
+from enum import Enum
+class aaa(Enum):
+     a = 1
+     b = 2
+     c = 3
+
+
+m = aaa.b
+print(m)
+print(m.value)
 
 def display_menu(obj: CarYard) -> None:
     flag = 'y'

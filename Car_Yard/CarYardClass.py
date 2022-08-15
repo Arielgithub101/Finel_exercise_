@@ -1,13 +1,17 @@
 from CarClass import Car
 from typing import Dict
+from CarType import CarTypes
 
 
 class CarYard:
 
-    def __init__(self):
-        self.all_car_dict: Dict[int, Car] = {}
+    def __init__(self, all_car_dict: Dict[int, Car] = None):
+        if all_car_dict is None:
+            self.all_car_dict: Dict[int, Car] = {}
+        else:
+            self.all_car_dict: Dict[int, Car] = all_car_dict
 
-    def display_all_cars_by_type(self, type_car: str) -> None:
+    def display_all_cars_by_type(self, type_car: CarTypes) -> None:
         for car in self.all_car_dict.values():
             if car.type_car == type_car:
                 car.car_info()
@@ -22,9 +26,9 @@ class CarYard:
         print(' ')
         print('The new Car added !!')
 
-    def remove_car(self, id_check: int) -> None:
+    def remove_car(self, id_remove: int) -> None:
         try:
-            del self.all_car_dict[id_check]
+            del self.all_car_dict[id_remove]
             print('The car has been deleted from the database')
         except KeyError:
             print('try again id doesnt exist in the database')
@@ -36,13 +40,13 @@ class CarYard:
             print('car not found')
 
     def display_all_gas_car(self) -> None:
-        self.display_all_cars_by_type('gas')
+        self.display_all_cars_by_type(CarTypes.gas.name)
 
     def display_all_electric_cars(self) -> None:
-        self.display_all_cars_by_type('electric')
+        self.display_all_cars_by_type(CarTypes.electric.name)
 
     def display_all_hybrid_cars(self) -> None:
-        self.display_all_cars_by_type('hybrid')
+        self.display_all_cars_by_type(CarTypes.hybrid.name)
 
     def display_cars_by_color(self, color: str) -> None:
         for item in self.all_car_dict.values():

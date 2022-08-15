@@ -1,3 +1,4 @@
+
 class Car:
     def __init__(self, price: int, year_of_prod: int, mile: int, color: str, company: str, type_car: str,
                  id_plate: int):
