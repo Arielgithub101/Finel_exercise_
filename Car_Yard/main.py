@@ -3,7 +3,6 @@ from CarClass import Car
 from GasClass import Gas
 from ElectricClass import Electric
 from HybridClass import Hybrid
-
 from enum import Enum
 
 

@@ -13,7 +13,7 @@ class CarYard:
 
     def __display_all_cars_by_type(self, type_car: CarTypes) -> None:
         for car in self.all_car_dict.values():
-            if car.type_car is type_car:
+            if car.car_type is type_car:
                 car.car_info()
 
     def add_car(self, new_car: Car) -> None:
@@ -34,9 +34,10 @@ class CarYard:
             print('try again id doesnt exist in the database')
 
     def display_specific_car(self, id_check: int) -> None:
+
         try:
-            self.all_car_dict.get(id_check).car_info()
-        except AttributeError:
+            self.all_car_dict[id_check].car_info()
+        except KeyError:
             print('car not found')
 
     def display_all_gas_car(self) -> None:
