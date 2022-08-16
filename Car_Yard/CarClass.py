@@ -1,3 +1,5 @@
+from CarType import CarTypes
+
 
 class Car:
     def __init__(self, price: int, year_of_prod: int, mile: int, color: str, company: str, type_car: str,
@@ -7,13 +9,16 @@ class Car:
         self.mile: int = mile
         self.color: str = color
         self.company: str = company
-        self.type_car: str = type_car
-        self.id_plate: int = id_plate
+        try:
+            self.type_car: CarTypes = CarTypes[type_car]
+        except KeyError:
+            print('! ---- Car type not available at the moment  ---- !')
+        self.id_plate = id_plate
 
     def car_info(self):
         print(f'''hello your new car as  follow : 
         company name : {self.company}
-        type car : {self.type_car}
+        type car : {self.type_car.name}
         Year of production : {self.year_of_prod}
         initial car mile : {self.mile}
         color : {self.color}

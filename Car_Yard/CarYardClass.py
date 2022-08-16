@@ -11,7 +11,7 @@ class CarYard:
         else:
             self.all_car_dict: Dict[int, Car] = all_car_dict
 
-    def display_all_cars_by_type(self, type_car: CarTypes) -> None:
+    def __display_all_cars_by_type(self, type_car: CarTypes) -> None:
         for car in self.all_car_dict.values():
             if car.type_car == type_car:
                 car.car_info()
@@ -40,20 +40,20 @@ class CarYard:
             print('car not found')
 
     def display_all_gas_car(self) -> None:
-        self.display_all_cars_by_type(CarTypes.gas.name)
+        self.__display_all_cars_by_type(CarTypes.gas)
 
     def display_all_electric_cars(self) -> None:
-        self.display_all_cars_by_type(CarTypes.electric.name)
+        self.__display_all_cars_by_type(CarTypes.electric)
 
     def display_all_hybrid_cars(self) -> None:
-        self.display_all_cars_by_type(CarTypes.hybrid.name)
+        self.__display_all_cars_by_type(CarTypes.hybrid)
 
     def display_cars_by_color(self, color: str) -> None:
-        for item in self.all_car_dict.values():
-            if item.color == color:
-                item.car_info()
+        for car in self.all_car_dict.values():
+            if car.color == color:
+                car.car_info()
 
     def display_cars_by_year(self, year: int) -> None:
-        for item in self.all_car_dict.values():
-            if item.year_of_prod > year:
-                item.car_info()
+        for car in self.all_car_dict.values():
+            if car.year_of_prod > year:
+                car.car_info()
