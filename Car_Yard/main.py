@@ -1,17 +1,10 @@
 from CarYardClass import CarYard
 from CarClass import Car
+from GasClass import Gas
+from ElectricClass import Electric
+from HybridClass import Hybrid
 
 from enum import Enum
-
-
-class aaa(Enum):
-    a = 1
-    b = 2
-    c = 3
-
-
-let = aaa['b']
-print(let)
 
 
 def display_menu(obj: CarYard) -> None:
@@ -34,16 +27,24 @@ def display_menu(obj: CarYard) -> None:
         match user_choice:
             case 1:
                 print('enter your car info ---> ')
+                user_choice_type = int(input('enter your choice for car type --> gas = 1/electric = 2/hybrid = 3 : '))
                 price: int = int(input('please enter car price : '))
                 year_of_prod: int = int(input('please enter car year_of_prod : '))
                 mile: int = int(input('please enter mile of the car : '))
                 color: str = input('please enter car color : ')
                 company: str = input('please enter car company : ')
-                type_car: str = input('please enter the type car : ')
                 id_plate: int = int(input('please enter License plate for the car : '))
-
-                new_car = Car(price, year_of_prod, mile, color, company, type_car, id_plate)
-                obj.add_car(new_car)
+                if user_choice_type == 1:
+                    new_car = Gas(price, year_of_prod, mile, color, company, id_plate)
+                    obj.add_car(new_car)
+                elif user_choice_type == 2:
+                    new_car = Electric(price, year_of_prod, mile, color, company, id_plate)
+                    obj.add_car(new_car)
+                elif user_choice_type == 3:
+                    new_car = Hybrid(price, year_of_prod, mile, color, company, id_plate)
+                    obj.add_car(new_car)
+                else:
+                    print('Car type not available at the moment')
                 flag: str = input('would you like to do anther action ? ---> y/n : ')
 
             case 2:

@@ -13,7 +13,7 @@ class CarYard:
 
     def __display_all_cars_by_type(self, type_car: CarTypes) -> None:
         for car in self.all_car_dict.values():
-            if car.type_car == type_car:
+            if car.type_car is type_car:
                 car.car_info()
 
     def add_car(self, new_car: Car) -> None:

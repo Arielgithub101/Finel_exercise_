@@ -1,24 +1,21 @@
 from CarType import CarTypes
+from abc import ABC
 
 
-class Car:
-    def __init__(self, price: int, year_of_prod: int, mile: int, color: str, company: str, type_car: str,
-                 id_plate: int):
+class Car(ABC):
+    def __init__(self, price: int, year_of_prod: int, mile: int, color: str, company: str, id_plate: int,type_car: CarTypes):
         self.price: int = price
         self.year_of_prod: int = year_of_prod
         self.mile: int = mile
         self.color: str = color
         self.company: str = company
-        try:
-            self.type_car: CarTypes = CarTypes[type_car]
-        except KeyError:
-            print('! ---- Car type not available at the moment  ---- !')
-        self.id_plate = id_plate
+        self.id_plate:int = id_plate
+        self.type_car: CarTypes = type_car
 
     def car_info(self):
         print(f'''hello your new car as  follow : 
         company name : {self.company}
-        type car : {self.type_car.name}
+        Type of the Car : {self.type_car.name}
         Year of production : {self.year_of_prod}
         initial car mile : {self.mile}
         color : {self.color}
