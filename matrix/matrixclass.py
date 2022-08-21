@@ -15,7 +15,7 @@ class Matrix:
             sum_item_in_row += i
         return sum_item_in_row
 
-    def sum_colum(self, col: int) -> int:
+    def sum_col(self, col: int) -> int:
         sum_item_in_col: int = 0
         for row in range(len(self.matrix)):
             sum_item_in_col += self.matrix[row][col - 1]
@@ -55,12 +55,9 @@ class Matrix:
         else:
             raise Exception("not a matrix class object")
 
-    def __mul__(self, other: 'Matrix'):
+    def __mul__(self, scaler: int):
         result = [[0 for i in range(len(self.matrix))] for j in range(len(self.matrix[0]))]
-        if isinstance(other, Matrix):
-            for i in range(len(self.matrix)):
-                for j in range(len(self.matrix[0])):
-                    result[i][j] = self.matrix[i][j] * other[i][j]
-            return result
-        else:
-            raise Exception("not a matrix class object")
+        for i in range(len(self.matrix)):
+            for j in range(len(self.matrix[0])):
+                result[i][j] = self.matrix[i][j] * scaler
+        return result

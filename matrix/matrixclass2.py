@@ -1,22 +1,26 @@
-import  numpy as np
+import numpy as np
+from numpy import ndarray
+
+
 class MatrixClass2:
     def __init__(self, row: int, col: int):
-        self.matrix = np.zeros([row, col], dtype = int)
+        self.row = row
+        self.col = col
+        self.matrix = np.zeros([self.row, self.col], dtype=int)
 
-    def print_matrix(self) -> None:
-        for i in range(len(self.matrix)):
-            print(self.matrix[i])
+    def print_matrix(self) -> ndarray:
+        return self.matrix
 
     def get_valu_at(self, row: int, col: int) -> int:
         return self.matrix[row][col]
 
     def sum_row(self, row: int) -> int:
-        return self.matrix.sum(axis=1)[row-1]
+        return self.matrix.sum(axis=1)[row - 1]
 
-    def sum_colum(self, col: int) -> int:
-        return self.matrix.sum(axis=0)[col-1]
+    def sum_col(self, col: int) -> int:
+        return self.matrix.sum(axis=0)[col - 1]
 
-    def compers_sum(self, matrix_check:'MatrixClass2') -> bool:
+    def compers_sum(self, matrix_check: list[list]) -> bool:
         sum1: int = 0
         for row in range(len(matrix_check)):
             for colum in range(len(matrix_check[0])):
@@ -30,37 +34,18 @@ class MatrixClass2:
         return len(self.matrix)
 
     #
-    # def __add__(self, other: 'Matrix'):
-    #     result = [[0 for i in range(len(self.matrix))] for j in range(len(self.matrix[0]))]
-    #     if isinstance(other, Matrix):
-    #         for i in range(len(self.matrix)):
-    #             for j in range(len(self.matrix[0])):
-    #                 result[i][j] = self.matrix[i][j] + other[i][j]
-    #         return result
-    #     else:
-    #         raise Exception("not a matrix class object")
-    #
-    # def __sub__(self, other: 'Matrix'):
-    #     result = [[0 for i in range(len(self.matrix))] for j in range(len(self.matrix[0]))]
-    #     if isinstance(other, Matrix):
-    #         for i in range(len(self.matrix)):
-    #             for j in range(len(self.matrix[0])):
-    #                 result[i][j] = self.matrix[i][j] - other[i][j]
-    #         return result
-    #     else:
-    #         raise Exception("not a matrix class object")
-    #
-    # def __mul__(self, other: 'Matrix'):
-    #     result = [[0 for i in range(len(self.matrix))] for j in range(len(self.matrix[0]))]
-    #     if isinstance(other, Matrix):
-    #         for i in range(len(self.matrix)):
-    #             for j in range(len(self.matrix[0])):
-    #                 result[i][j] = self.matrix[i][j] * other[i][j]
-    #         return result
-    #     else:
-    #         raise Exception("not a matrix class object")
-    #
-    #
-    #
+    def __add__(self, other: 'MatrixClass2'):
+        new_mat = MatrixClass2(self.row,self.col)
+        new_mat.matrix = np.add(self.matrix, other.matrix)
+        return new_mat.print_matrix()
 
+    def __sub__(self, other: 'MatrixClass2'):
+        new_mat = MatrixClass2(self.row, self.col)
+        new_mat.matrix = np.subtract(self.matrix, other.matrix)
+        return new_mat.print_matrix()
+
+    def __mul__(self, scaler: int):
+        new_mat = MatrixClass2(self.row, self.col)
+        new_mat.matrix = np.multiply(self.matrix,scaler)
+        return new_mat.print_matrix()
 
