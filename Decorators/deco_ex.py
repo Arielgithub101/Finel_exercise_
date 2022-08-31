@@ -1,4 +1,4 @@
-from typing import Callable, Type
+from typing import Callable, Type,Any
 
 
 def call_func_twice(func: Callable) -> Callable:
@@ -25,7 +25,7 @@ def printer(func: Callable) -> Callable:
     def inner(*args, **kwargs):
         print("The purpose of the decorator is to print return value of func ")
         values = func(*args, **kwargs)
-        if values:
+        if values is not None:
             print('good , values is not none ->> colling the func')
             print(values)
 
@@ -33,10 +33,10 @@ def printer(func: Callable) -> Callable:
 
 
 def factory_deco(type_var: Type) -> Callable:
-    def type_check(func: Callable):
-        def inner(*args):
-            if isinstance(*args, type_var):
-                return func(*args)
+    def type_check(func: Callable[[any],Any]):
+        def inner(a):
+            if isinstance(a, type_var):
+                return func(a)
             else:
                 print("Bad Type")
 
@@ -71,7 +71,7 @@ if __name__ == "__main__":
 
     @printer
     def try_deco_3(*args, **kwargs):
-        return args, kwargs
+        return False
 
 
     try_deco_3()
@@ -81,9 +81,9 @@ if __name__ == "__main__":
 
     # Ex from website https://www.learnpython.org/en/Decorators
 
-    @factory_deco(int)
+    @factory_deco()
     def try_deco_4(num):
         return num
 
 
-    print(try_deco_4(8))
+    print(try_deco_4(4))
