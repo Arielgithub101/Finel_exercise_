@@ -33,7 +33,7 @@ def printer(func: Callable) -> Callable:
 
 
 def factory_deco(type_var: Type) -> Callable:
-    def type_check(func: Callable[[any],Any]):
+    def type_check(func: Callable[[any],any]):
         def inner(a):
             if isinstance(a, type_var):
                 return func(a)
