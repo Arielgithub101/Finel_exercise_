@@ -1,6 +1,6 @@
 class Matrix:
     def __init__(self, row: int, col: int):
-        self.matrix = [[4 for j in range(row)] for i in range(col)]
+         self.matrix = [[4 for i in range(col)] for j in range(row)]
 
     def print_matrix(self) -> None:
         for i in range(len(self.matrix)):
@@ -52,7 +52,7 @@ class Matrix:
         return self.matrix[item]
 
     def __add__(self, other: 'Matrix'):
-        result = [[0 for i in range(len(self.matrix))] for j in range(len(self.matrix[0]))]
+        result = [[0 for i in range(len(self.matrix[0]))] for j in range(len(self.matrix))]
         if isinstance(other, Matrix):
             for i in range(len(self.matrix)):
                 for j in range(len(self.matrix[0])):
@@ -62,7 +62,7 @@ class Matrix:
             raise Exception("not a matrix class object")
 
     def __sub__(self, other: 'Matrix'):
-        result = [[0 for i in range(len(self.matrix))] for j in range(len(self.matrix[0]))]
+        result = [[0 for i in range(len(self.matrix[0]))] for j in range(len(self.matrix))]
         if isinstance(other, Matrix):
             for i in range(len(self.matrix)):
                 for j in range(len(self.matrix[0])):
@@ -72,7 +72,7 @@ class Matrix:
             raise Exception("not a matrix class object")
 
     def __mul__(self, scaler: int):
-        result = [[0 for i in range(len(self.matrix))] for j in range(len(self.matrix[0]))]
+        result = [[0 for i in range(len(self.matrix[0]))] for j in range(len(self.matrix))]
         for i in range(len(self.matrix)):
             for j in range(len(self.matrix[0])):
                 result[i][j] = self.matrix[i][j] * scaler

@@ -22,8 +22,8 @@ from matrixclass2 import MatrixClass2
 #
 
 
-c = Matrix(3, 3)
-d = Matrix(3, 3)
+c = Matrix(4, 2)
+d = Matrix(4, 2)
 y = [[5, 5, 5],
      [5, 5, 5],
      [5, 5, 5]
@@ -31,11 +31,11 @@ y = [[5, 5, 5],
 
 print(c.print_matrix())
 print(c.sum_row(2))
-print(c.sum_col(2))
+print(c.sum_col(1))
 print(c.compers_sum(y))
-print(c.get_submatrix(0, 1, 0, 2))
+print(c.get_submatrix(0, 1, 0, 1))
 print(c.get_multiplied_row(0,10))
-print(c.get_multiplied_submatrix(0, 1, 0, 2,10))
+print(c.get_multiplied_submatrix(0, 1, 0, 1,10))
 
 
 print('-----------------')
