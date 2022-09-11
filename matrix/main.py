@@ -34,16 +34,19 @@ print(c.print_matrix())
 print(p.print_matrix())
 print(c.sum_row(2))
 print(c.sum_col(1))
-print(c.compar_sum(p))
-print(c.get_submatrix(0, 1, 0, 1))
+print(c.compare_sum(p))
+print(c.get_submatrix(1, 1, 1, 1))
 print(c.get_multiplied_row(0,10))
 print(c.get_multiplied_submatrix(0, 1, 0, 1,156))
 
 
 print('-----------------')
-print(c + d)
+obj1 = c + d
+obj1.print_matrix()
 print('-----------------')
-print(c - d)
+obj2 = c - d
+obj2.print_matrix()
 print('-----------------')
-print(c * 5)
+obj3 = c * 5
+obj3.print_matrix()
 print('-----------------')
