@@ -35,9 +35,9 @@ print(p.print_matrix())
 print(c.sum_row(2))
 print(c.sum_col(1))
 print(c.compare_sum(p))
-print(c.get_submatrix(1, 1, 1, 1))
+print(c.get_submatrix(0, 1, 0, 2))
 print(c.get_multiplied_row(0,10))
-print(c.get_multiplied_submatrix(0, 1, 0, 1,156))
+print(c.get_multiplied_submatrix(0, 1, 0, 2,10))
 
 
 print('-----------------')
@@ -50,3 +50,4 @@ print('-----------------')
 obj3 = c * 5
 obj3.print_matrix()
 print('-----------------')
+print(c == p)

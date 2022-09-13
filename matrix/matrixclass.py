@@ -47,6 +47,14 @@ class Matrix:
                 result[i][j] = self.matrix[i][j] * scaler
         return result
 
+    def __eq__(self, other:'Matrix'):
+        if isinstance(other, Matrix):
+            for i in range(len(self.matrix)):
+                if self.matrix[i] != other[i]:
+                    return False
+            return True
+        return False
+
     def print_matrix(self) -> None:
         for i in range(len(self.matrix)):
             print(self.matrix[i])
